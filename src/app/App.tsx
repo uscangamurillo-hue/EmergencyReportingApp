@@ -38,7 +38,8 @@ const theme = createTheme({
   },
 });
 
-function AppInner() {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function AppInner(_props: Record<string, unknown>) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -74,5 +75,5 @@ export default function App(props: Record<string, unknown>) {
   const safeProps = Object.fromEntries(
     Object.entries(props).filter(([k]) => !k.startsWith('data-fg'))
   );
-  return <div {...safeProps} style={{ display: 'contents' }}><AppInner /></div>;
+  return <div {...safeProps} style={{ display: 'contents' }}><AppInner {...props} /></div>;
 }
